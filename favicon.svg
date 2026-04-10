@@ -1,0 +1,96 @@
+<svg
+  width="240"
+  height="240"
+  viewBox="0 0 240 240"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  style="
+    /* SVG уже содержит CSS для анимации при наведении */
+    filter: drop-shadow(0 10px 40px rgba(0, 255, 204, 0.4));
+    transition: filter 0.3s ease;
+    cursor: pointer;
+  "
+  onmouseover="this.style.filter='drop-shadow(0 20px 80px rgba(255, 255, 255, 0.5))'"
+  onmouseout="this.style.filter='drop-shadow(0 10px 40px rgba(0, 255, 204, 0.4))'"
+>
+  <defs>
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffcc" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#00ffcc" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#00ffcc" stop-opacity="0.8" />
+    </linearGradient>
+
+    <radialGradient id="glassGradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.2" />
+    </radialGradient>
+
+    <mask id="glassMask">
+      <circle cx="120" cy="120" r="99" fill="white" />
+      <circle cx="118" cy="118" r="99" fill="black" />
+    </mask>
+  </defs>
+
+  <circle
+    cx="120"
+    cy="120"
+    r="100"
+    stroke="url(#neonGradient)"
+    stroke-width="2"
+    style="
+      transition: stroke 0.3s ease;
+    "
+  />
+
+  <circle
+    cx="120"
+    cy="120"
+    r="99"
+    fill="url(#glassGradient)"
+    style="
+      /* При наведении стекло становится чуть ярче */
+      transition: fill 0.3s ease;
+    "
+  />
+
+  <circle
+    cx="120"
+    cy="120"
+    r="99"
+    fill="#ffffff"
+    fill-opacity="0.1"
+    mask="url(#glassMask)"
+  />
+
+  <circle
+    cx="120"
+    cy="120"
+    r="25"
+    fill="#00ffcc"
+    fill-opacity="0.2"
+    stroke="#00ffcc"
+    stroke-width="1"
+    style="
+      transition: fill-opacity 0.3s ease;
+    "
+  >
+    <animate
+      attributeName="fill-opacity"
+      values="0.2; 0.6; 0.2"
+      dur="2s"
+      repeatCount="indefinite"
+    />
+  </circle>
+
+  <style>
+    svg:hover circle[stroke="#00ffcc"] {
+    stroke: #ffffff;
+    }
+    svg:hover circle[fill="url(#glassGradient)"] {
+    fill: rgba(255, 255, 255, 0.15);
+    }
+    svg:hover circle[fill="#00ffcc"] {
+    fill-opacity: 0.8;
+    }
+  </style>
+</svg>
